@@ -1,0 +1,14 @@
+﻿@using Final.Models
+
+
+<h2>Edit</h2>
+<form method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <label>Name</label>
+    <input type="text" name="Name" value="@Model.Name " class="form-control" />
+    <label>Price</label>
+    <input type="number" name="Price" class="form-control"  value="@Model.Price"/><br />
+    <label>Quantity</label>
+    <input type="number" name="Quantity" class="form-control" value="@Model.Quantity" /><br />
+    <button type="submit" class="btn btn-info">Save</button>
+</form>

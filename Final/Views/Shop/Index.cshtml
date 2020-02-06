@@ -1,0 +1,36 @@
+﻿@using Final.Models
+@model List<Items>
+@{
+    ViewBag.Title = "Items";
+}
+
+<h2>Index</h2>
+
+<a href="/Shop/Create">Add new item</a>
+<table class="table table-bordered">
+    <tr>
+        <td>  Id  </td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Quantity</td>
+
+    </tr>
+    @foreach (Items i in Model)
+    {
+        <tr>
+            <td>@i.Id</td>
+            <td>@i.Name</td>
+            <td>@i.Price</td>
+            <td>@i.Quantity</td>
+            <td>
+
+                <a href="/Shop/Edit/@i.Id" class="btn btn-warning">Edit</a>
+                <form method="post" action="/Shop/Delete/@i.Id" style="display:inline-block">
+                    <button onclick="return confirm('Are you sure?');" type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+
+    }
+
+</table>

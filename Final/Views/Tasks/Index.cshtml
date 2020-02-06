@@ -1,0 +1,35 @@
+﻿@using Final.Models
+@model List<Tasks>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tasks</h2>
+<a href="/Tasks/Create">Add new task</a>
+<table class="table table-bordered">
+    <tr>
+        <td>  Id  </td>
+        <td>Name</td>
+        <td>Type</td>
+        <td>Cost</td>
+
+    </tr>
+    @foreach (Tasks t in Model)
+    {
+        <tr>
+            <td>@t.Id</td>
+            <td>@t.Name</td>
+            <td>@t.Type</td>
+            <td>@t.Cost</td>
+            <td>
+
+                <a href="/Tasks/Edit/@t.Id" class="btn btn-warning">Edit</a>
+                <form method="post" action="/Tasks/Delete/@t.Id" style="display:inline-block">
+                    <button onclick="return confirm('Are you sure?');" type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+
+    }
+
+</table>
